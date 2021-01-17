@@ -1,0 +1,6 @@
+Xtdasm.tests
+bootrom.c
+*.dis
+*.globals.c
+*.h
+*.asm

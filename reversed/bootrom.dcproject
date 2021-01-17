@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemata.jklnet.org/Reko/v5">
+  <arch>xtensa</arch>
+  <platform>elf-neutral</platform>
+  <input>
+    <filename>../../esp-elf-rom/bootrom.elf</filename>
+    <asmDir>bootrom.reko</asmDir>
+    <srcDir>bootrom.reko</srcDir>
+    <includeDir>bootrom.reko</includeDir>
+    <resources>bootrom.reko/resources</resources>
+    <user>
+      <procedure name="ets_isr_attach">
+        <characteristics />
+        <address>40000F88</address>
+        <CSignature>void ets_isr_attach(int intr, void (*func)(void*), void* arg)</CSignature>
+      </procedure>
+      <procedure name="main">
+        <characteristics />
+        <address>40000FEC</address>
+        <CSignature>int main()</CSignature>
+      </procedure>
+      <procedure name="sip_wait_until_state_2">
+        <characteristics />
+        <address>40001160</address>
+        <CSignature>void sip_wait_until_state_2()</CSignature>
+      </procedure>
+      <procedure name="boot_from_something">
+        <characteristics />
+        <address>400011AC</address>
+        <CSignature>void boot_from_something(void (**user_start_ptr)())</CSignature>
+      </procedure>
+      <procedure name="boot_from_flash">
+        <characteristics />
+        <address>40001308</address>
+        <CSignature>int boot_from_flash()</CSignature>
+      </procedure>
+      <procedure name="ets_printf">
+        <characteristics />
+        <address>400024CC</address>
+      </procedure>
+      <procedure name="UartDwnLdProc">
+        <characteristics />
+        <address>40003368</address>
+        <CSignature>void UartDwnLdProc(uint8* buf, uint32 buf_size, void (**user_start_ptr)())</CSignature>
+      </procedure>
+      <procedure name="uart_tx_one_char">
+        <characteristics />
+        <address>40003B30</address>
+        <CSignature>void uart_tx_one_char(uint8 b)</CSignature>
+      </procedure>
+      <procedure name="uart_rx_one_char_block">
+        <characteristics />
+        <address>40003B64</address>
+        <CSignature>char uart_rx_one_char_block()</CSignature>
+      </procedure>
+      <procedure name="uart_rx_one_char">
+        <characteristics />
+        <address>40003B8C</address>
+        <CSignature>int uart_rx_one_char(uint8 *ch)</CSignature>
+      </procedure>
+      <procedure name="send_packet">
+        <characteristics />
+        <address>40003C80</address>
+        <CSignature>void send_packet(uint8* buf, uint32 size)</CSignature>
+      </procedure>
+      <procedure name="recv_packet">
+        <characteristics />
+        <address>40003D08</address>
+        <CSignature>int recv_packet(uint8* buf, uint32 buf_size, bool a)</CSignature>
+      </procedure>
+      <procedure name="RcvMsg">
+        <characteristics />
+        <address>40003EAC</address>
+        <CSignature>int RcvMsg(uint8* buf, uint32 buf_size, bool a)</CSignature>
+      </procedure>
+      <procedure name="uart_rx_readbuff">
+        <characteristics />
+        <address>40003EC8</address>
+        <CSignature>int uart_rx_readbuff(struct RcvMsgBuff* rcv_buff, uint8* ch)</CSignature>
+      </procedure>
+      <procedure name="SPIRead">
+        <characteristics />
+        <address>40004B1C</address>
+        <CSignature>int SPIRead(uint32 addr, void *dst, uint32 size)</CSignature>
+      </procedure>
+      <onLoad Enabled="false" />
+      <registerValues />
+      <extractResources>false</extractResources>
+      <outputFilePolicy>Segment</outputFilePolicy>
+    </user>
+  </input>
+</project>
